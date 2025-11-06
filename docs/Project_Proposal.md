@@ -14,7 +14,7 @@
 1. PYNQ-Z2 Board
 2. SD Card
 3. Ethernet and USB cable
-4. Arducam (or any camera with USB connection)
+4. Any camera supporting USB connection
 
 ## 2. Project Title : FPGA-Accelerated Sign Language Recognition Using the Ztachip ​
 
