@@ -96,6 +96,7 @@ FPGA development board compatible with Ztachip
 1. Chen et al., “Deep Learning Acceleration on FPGAs: A Review,” IEEE TPDS.
 2. Molchanov et al., “Hand Gesture Recognition with Deep Learning for Real-Time Applications.”
 3. Zhang et al., “TVM: End-to-End Optimization for Deep Learning on Hardware Accelerators.”
+
 **GitHub Repositories:**
 - Ztachip (chosen platform): https://github.com/ztachip/ztachip
 - ASL Classification Dataset & Model: https://github.com/ardamavi/Sign-Language-Digits-Dataset
