@@ -83,7 +83,7 @@ Provide expected milestones:
 | Dec. 18 | Final presentation | Report, demo, GitHub archive |
 
 ## 9. Resources Required
-FPGA development board compatible with Ztachip
+FPGA development board (PYNQ) compatible with Ztachip
 - ASL alphabet dataset
 - Development environment with PyTorch/TensorFlow
 - Ztachip toolchain and SDK
