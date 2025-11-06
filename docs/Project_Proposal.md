@@ -1,4 +1,4 @@
-# University of Virginia
+# University of Virginia (Group Name: AI-Hardware-WIMA)
 ## Department of Electrical and Computer Engineering
 
 **Course:** ECE 4332 / ECE 6332 — AI Hardware Design and Implementation  
