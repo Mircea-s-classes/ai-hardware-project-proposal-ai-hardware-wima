@@ -23,6 +23,7 @@ Name of the Team:WIMA
 List of students in the team
 1. Maiva Ndjiakou Kaptue
 2. Wil Berling
+3. Daniel Lee
 
 Provide a clear and concise title for your project. 
 
@@ -76,6 +77,7 @@ List each member’s main role.
 | Maiva & Wil | Hardware | FPGA setup, Ztachip integration, compiler workflow |
 | Maiva | Software |ONNX export, file handling, model|
 | Wil| Evaluation | Testing, benchmarking, latency measurements |
+| Daniel | Software | Design, Implementation, Deployment |
 
 ## 9. Timeline and Milestones
 Provide expected milestones:
