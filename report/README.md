@@ -166,7 +166,7 @@ ai-hardware-project/
 │
 └── README.md
 
-
+```
 ## `src/model/` – Model Development Explained
 
 The `src/model/` directory contains all **machine learning model–related logic**, including:
