@@ -1,44 +1,185 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/v3c0XywZ)
-# AI Hardware Project Template
-ECE 4332 / ECE 6332 — AI Hardware  
-Fall 2025
+# FPGA-Accelerated Real-Time ASL Alphabet Recognition  
+**AI Hardware Final Project – Hardware/Software Co-Design**
 
-## 🧭 Overview
-This repository provides a structured template for your team project in the AI Hardware class.  
-Each team will **clone this template** to start their own project repository.
+---
 
-## 🗂 Folder Structure
-- `docs/` – project proposal and documentation  
-- `presentations/` – midterm and final presentation slides  
-- `report/` – final written report (IEEE LaTeX and DOCX versions included)  
-- `src/` – source code for software, hardware, and experiments  
-- `data/` – datasets or pointers to data used
+## Team Members
+- **Maïva Ndjiakou Kaptue**
+- **Wil Berling**
+- **Daniel Lee**
 
-## 🧑‍🤝‍🧑 Team Setup
-Each team should have **2–4 members (3 preferred)**.  
-List all team members in `docs/Project_Proposal.md`.
+---
 
-## 📋 Required Deliverables
-1. **Project Proposal** — due Nov. 5, 2025, 11:59 PM  
-2. **Midterm Presentation** — Nov. 19,2025, 11:59 PM  
-3. **Final Presentation and Report** — Dec. 17, 11:59 PM
+## Project Motivation
+Sign language recognition is a critical human–computer interaction problem with strong relevance to **accessibility, assistive technologies, and inclusive design**. Real-time interpretation of hand gestures requires both high classification accuracy and **low, stable inference latency**.
 
-## 🚀 How to Use This Template
-1. Click **“Use this template”** on GitHub.  
-2. Name your repo `ai-hardware-teamXX` (replace XX with your team name or number).  
-3. Clone it locally:
-   ```bash
-   git clone https://github.com/YOUR-ORG/ai-hardware-teamXX.git
-   ```
-4. Add your work in the appropriate folders.
+While deep learning models achieve excellent accuracy, most implementations rely on **general-purpose CPUs or GPUs**. CPUs often exhibit **latency jitter** due to operating system scheduling and shared resources, which degrades real-time user experience and limits deployment in embedded systems.
 
-## 🧾 Submissions
-- Commit and push all deliverables before each deadline.
-- Tag final submissions with:
-   ```bash
-   git tag v1.0-final
-   git push origin v1.0-final
-   ```
+This project explores **FPGA-based acceleration** as a practical solution to:
+- Reduce inference latency variability  
+- Improve execution determinism  
+- Enable deployment on embedded and low-power platforms  
 
-## 📜 License
-This project is released under the MIT License.
+---
+
+## Project Overview
+This project implements a real-time **American Sign Language (ASL) alphabet recognition system** and evaluates two execution platforms:
+
+1. **PC-based software baseline (CPU-only)**
+2. **FPGA-accelerated embedded system using the PYNQ-Z1 board**
+
+A convolutional neural network (CNN) is trained to classify ASL hand gestures from grayscale images. The trained model is **partially offloaded to FPGA hardware** by accelerating the first convolutional block using a **custom HLS-generated IP core**, while the remaining layers execute on the ARM processor.
+
+> **Project status:** Actively in progress. All remaining objectives and benchmarks will be completed and added as development progresses.
+
+---
+
+## System Architecture
+
+### End-to-End Pipeline
+1. Camera frame acquisition  
+2. Image preprocessing (grayscale, resizing to 28×28)  
+3. CNN inference  
+4. ASL letter prediction  
+
+### Hardware / Software Partition
+- **CPU baseline:** Entire CNN executed on the host CPU  
+- **FPGA-accelerated path:**
+  - Conv1 + ReLU + MaxPool on FPGA programmable logic  
+  - Remaining CNN layers on ARM processor (TensorFlow Lite)  
+
+<p align="center">
+  <img src="figures/asl_cnn_fpga_split.png" width="600">
+</p>
+
+---
+
+## Dataset and Preprocessing
+- **Dataset:** ASL Alphabet Dataset (Kaggle)
+- **Image format:** 28×28 grayscale
+- **Classes:** 25 ASL alphabet letters  
+
+The same preprocessing pipeline is applied for both CPU and FPGA execution to ensure a **fair and meaningful comparison**.
+
+---
+
+## Neural Network Model
+The CNN architecture is optimized for low-resolution grayscale input:
+
+- Conv(32) → ReLU → MaxPool  
+- Conv(64) → ReLU → MaxPool  
+- Dense(128) → ReLU  
+- Dense(25) → Softmax  
+
+<p align="center">
+  <img src="figures/netron_asl_model.png" width="600">
+</p>
+
+---
+
+## Implementation
+
+### PC-Based Software Baseline
+- Python + TensorFlow  
+- Real-time webcam inference  
+- Used for training, debugging, and benchmarking  
+- Serves as the reference implementation  
+
+---
+
+### FPGA-Based Implementation (PYNQ-Z1)
+
+#### HLS Accelerator Design
+The first convolutional block is implemented as a **custom Vitis HLS IP core** using weights exported from the trained Keras model.
+
+<p align="center">
+  <img src="figures/vitis_hls_asl_conv1_screenshot.png" width="700">
+</p>
+
+#### Vivado Integration
+The HLS IP is integrated into a Zynq block design and synthesized for the PYNQ-Z1 FPGA.
+
+<p align="center">
+  <img src="figures/vivado_bd_asl_system.png" width="600">
+</p>
+
+#### FPGA Synthesis and Implementation
+<p align="center">
+  <img src="figures/vivado_synthesis_success.png" width="600">
+</p>
+
+<p align="center">
+  <img src="figures/vivado_implementation_success.png" width="600">
+</p>
+
+---
+
+## Results and Benchmarking
+
+### CPU Baseline Results
+- High validation accuracy  
+- Mean inference latency ≈ **83.521 ms**  
+- Standard deviation ≈ **29.625 ms**  
+- Throughput ≈ **11.97 FPS**  
+- Observable latency variability (jitter)  
+
+<p align="center">
+  <img src="figures/Accuracy.png" width="600">
+</p>
+
+<p align="center">
+  <img src="figures/CPU Latency .png" width="45%">
+  <img src="figures/Latency-Distribution.png" width="45%">
+</p>
+
+### FPGA Results (Current Progress)
+- Successful FPGA overlay generation (bitstream + .hwh)  
+- Functional hardware/software partition verified (Conv1 on FPGA, tail on ARM)  
+- Very low FPGA resource utilization for `asl_conv1`:
+  - LUTs: 681 / 53,200 (1.28%)  
+  - FFs: 4,791 / 106,400 (4.50%)  
+  - BRAM: 0 / 140 (0.00%)  
+  - DSP: 0 / 220 (0.00%)  
+
+Additional FPGA latency/throughput benchmarks will be added.
+
+---
+
+## HowTo: Use the Software with the Hardware Platform (PYNQ-Z1)
+> **This section is required and graded. It explains how to use the software together with the hardware platform.**  
+> This README is continuously updated and serves as the **final project report** (motivation + structure + meaningful results).
+
+### Requirements
+- PYNQ-Z1 board with a PYNQ image installed  
+- Micro-USB cable (power + UART)  
+- Ethernet cable (recommended: board ↔ router)  
+- Host PC on the same network (Wi-Fi is fine)  
+- Serial terminal (MobaXterm on Windows, or `screen/minicom` on Linux)  
+- Web browser (Chrome/Edge/Firefox)
+
+---
+
+### Step 1 – Connect and Boot the Board
+1. Set boot mode to **SD** (JP4 jumper on SD position)  
+2. Insert the microSD card with the PYNQ image  
+3. Connect **micro-USB** to the board (PROG-UART) and your PC  
+4. Connect **Ethernet** from the board to your router/switch  
+5. Power ON the board and wait for the normal boot LED sequence to finish  
+
+---
+
+### Step 2 – Access the Board via Serial
+1. On Windows: open **Device Manager** → identify the board COM port (example: `COM9`)  
+2. Open **MobaXterm** → **Session** → **Serial**  
+3. Set:
+   - **Port:** your COM port (ex: `COM9`)  
+   - **Baud rate:** `115200`  
+
+You should now see the PYNQ Linux terminal.
+
+---
+
+### Step 3 – Get the Board IP Address
+In the serial terminal, run:
+```bash
+ifconfig -a
