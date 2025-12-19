@@ -315,8 +315,7 @@ figures/        # Figures used in README and report
 models/         # Trained CNN and ONNX models
 hls/            # Vitis HLS source code
 vivado/         # Vivado block design and bitstreams
-pynq/           # Jupyter notebooks and overlays
-benchmarks/     # CPU/FPGA benchmarking scripts
+overlay/           # Jupyter notebooks and overlays
 report/         # LaTeX report
 README.md
 ```
