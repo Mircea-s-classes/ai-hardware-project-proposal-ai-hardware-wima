@@ -249,6 +249,10 @@ These results clearly show that the CPU+FPGA design provides a **substantial per
 3. Connect the micro-USB cable (PROG-UART) to the PC.  
 4. Connect Ethernet from the board to the router/switch.  
 5. Power on the board and wait for the boot LEDs to stabilize.
+   <img width="1277" height="760" alt="image" src="https://github.com/user-attachments/assets/5ae6cead-7d97-4dda-b9ec-ce601bb83888" />
+   <img width="1277" height="760" alt="image" src="https://github.com/user-attachments/assets/05d5c5a3-b9eb-4419-abee-9af72ef5267c" />
+
+
 
 ### Step 2 – Access the Board via Serial
 1. Open **Device Manager** (Windows) and find the COM port (e.g., `COM9`).  
@@ -256,6 +260,8 @@ These results clearly show that the CPU+FPGA design provides a **substantial per
    - Port: `COM9` (or your port)  
    - Baud: `115200`  
 3. Connect; you should see the PYNQ Linux shell.
+   
+
 
 ### Step 3 – Get the Board IP Address
 In the serial terminal, run:
@@ -264,6 +270,9 @@ ifconfig -a
 ```
 
 ---
+<img width="1361" height="993" alt="IPaddress" src="https://github.com/user-attachments/assets/5bcdeb7d-9876-4344-8015-88cf2f95696c" />
+
+<img width="1736" height="1011" alt="image (8)" src="https://github.com/user-attachments/assets/2890f0cc-fe02-4350-8fc6-5314ebcf1f86" />
 
 ### Step 4 – Access the PYNQ Jupyter Notebook
 1. On your host PC, open a browser and go to:
