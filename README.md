@@ -89,10 +89,6 @@ The CNN architecture is optimized for low-resolution grayscale input:
 - Dense(128) → ReLU  
 - Dense(25) → Softmax  
 
-<p align="center">
-  <img src="figures/netron_asl_model.png" width="600">
-</p>
-
 This model achieves high classification accuracy with a modest parameter count, making it suitable for both desktop and embedded deployment.
 
 ---
