@@ -1,0 +1,24 @@
+This folder contains the Python scripts used to exercise and benchmark the
+ASL Conv1 accelerator on the PYNQ‑Z1 and to reproduce the results reported in
+the AI Hardware project.
+
+## Files
+
+- **load_overlay_and_test_conv1.py**  
+  Loads `asl_system.bit` on the PYNQ board, runs the `asl_conv1` HLS IP on a
+  test image (or random input), and prints the resulting `13×13×32` feature map
+  plus the control register state. Used as a basic hardware smoke test.
+
+- **cpu_only_baseline.py**  
+  Runs the full ASL CNN on CPU only (TensorFlow/Keras) using the test set.
+  Computes top‑1 accuracy, measures single‑image latency over many runs, and
+  saves `cpu_latency_ms.npy` for plotting. 
+
+- **cpu_fpga_pipeline.py**  
+  Main CPU+FPGA experiment. On PYNQ, it:
+  1. Loads `asl_system.bit` and obtains the `asl_conv1` IP handle.  
+  2. For each test image, runs Conv1+ReLU+MaxPool on the FPGA, flattens the
+     `13×13×32` feature map, and feeds it to a TFLite “tail” model on the ARM
+     CPU.  
+  3. Records classification accuracy, per‑frame latency, and saves
+     `fpga_latency_ms.npy` used for latency/FPS benchmarks.
