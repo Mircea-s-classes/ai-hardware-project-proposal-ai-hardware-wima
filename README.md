@@ -319,20 +319,24 @@ README.md
 ---
 
 ## Limitations
-- Only the first convolution layer is accelerated on FPGA  
+- Only the first convolution layer is accelerated on FPGA, while the remaining layers execute on the ARM CPU.
+- Data transfer overhead between the CPU and FPGA introduces some latency that limits further speedup.
+- The model architecture was intentionally kept small to fit FPGA resource constraints, limiting scalability.
 
 ---
 
-## Future Work 
-- Power and determinism analysis  
+## Future Work
+- Perform detailed **power consumption and energy efficiency analysis** comparing CPU-only and FPGA-accelerated execution.
+- Extend FPGA acceleration to additional convolution and fully connected layers.
+- Explore deeper pipelining, parallelism, and model pruning to further improve throughput and determinism.
 
 ---
 
 ## Demo Video
-A demo video will be added demonstrating real-time ASL recognition on the PYNQ-Z1. Here is the link for the Demo video: https://drive.google.com/file/d/11bp6jmOTSYHYp7QqQZ3bEl1PeBh_pm0y/view?usp=sharing
+A demo video demonstrating real-time ASL recognition on the PYNQ-Z1 is available here:  
+https://drive.google.com/file/d/11bp6jmOTSYHYp7QqQZ3bEl1PeBh_pm0y/view?usp=sharing
 
 ---
 
 ## Conclusion
-This project demonstrates a complete **AI hardware co-design workflow**, from CNN training to FPGA deployment, highlighting the benefits and challenges of FPGA acceleration for real-time embedded AI.
-
+This project demonstrates a complete **AI hardware co-design workflow**, spanning dataset preparation, CNN training, quantization, and FPGA deployment. By offloading convolutional computation to programmable logic, the system achieves real-time performance while illustrating the trade-offs between flexibility, performance, and hardware complexity. Overall, the project highlights the practical benefits and challenges of FPGA acceleration for real-time embedded AI systems.
