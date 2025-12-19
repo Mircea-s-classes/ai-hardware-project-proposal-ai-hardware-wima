@@ -176,7 +176,7 @@ The accelerator is extremely lightweight, demonstrating that meaningful speedups
 </p>
 
 <p align="center">
-  <img src="figures/CPU Latency .png" width="45%">
+  <img src="figures/CPU Latency.png" width="45%">
   <img src="figures/Latency-Distribution.png" width="45%">
 </p>
 
@@ -192,10 +192,6 @@ We compare Conv1+ReLU+MaxPool feature maps produced in software vs. hardware for
 - MSE (HW vs SW): **9.9 × 10⁻⁷**  
 - MAE: **7.9 × 10⁻⁴**  
 - Max |difference|: **4.5 × 10⁻³**
-
-<p align="center">
-  <img src="figures/hwsw_error_bar.png" width="450">
-</p>
 
 All errors are tiny (well below 10⁻²), confirming that the FPGA accelerator is numerically faithful to the reference layer and justifying its use inside the end-to-end pipeline.
 
