@@ -176,7 +176,7 @@ The accelerator is extremely lightweight, demonstrating that meaningful speedups
 </p>
 
 <p align="center">
-  <img src="figures/CPU Latency.png" width="45%">
+  <img src="figures/CPU Latency .png" width="45%">
   <img src="figures/Latency-Distribution.png" width="45%">
 </p>
 
@@ -197,10 +197,6 @@ All errors are tiny (well below 10⁻²), confirming that the FPGA accelerator i
 
 #### End-to-End Accuracy: CPU vs CPU+FPGA
 
-<p align="center">
-  <img src="figures/Accuracy_Benchmark.png" width="450">
-</p>
-
 - **CPU only:** 98.24% test accuracy  
 - **CPU+FPGA:** 98.44% test accuracy  
 
@@ -208,9 +204,6 @@ Offloading Conv1 to hardware does **not** degrade recognition performance; if an
 
 #### Latency and Throughput: CPU vs CPU+FPGA
 
-<p align="center">
-  <img src="figures/Inference_Latency-Benchmark.png" width="500">
-</p>
 
 Measured over 500 single-frame inferences:
 
