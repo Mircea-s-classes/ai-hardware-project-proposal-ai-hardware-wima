@@ -268,7 +268,8 @@ ifconfig -a
 ```
 
 ---
-<img width="1736" height="1011" alt="image (8)" src="https://github.com/user-attachments/assets/2890f0cc-fe02-4350-8fc6-5314ebcf1f86" />
+
+ <img width="1361" height="993" alt="IPaddress" src="https://github.com/user-attachments/assets/c1915d45-4881-41a1-83d9-a2ccf931700f" />
 
 ---
 
@@ -280,6 +281,10 @@ ifconfig -a
 2. Login (default PYNQ credentials):
    - **username:** `xilinx`  
    - **password:** `xilinx`
+    
+
+     <img width="1736" height="1011" alt="image (8)" src="https://github.com/user-attachments/assets/2890f0cc-fe02-4350-8fc6-5314ebcf1f86" />
+
 
 > If your browser shows a security warning (self-signed certificate), click **Advanced → Proceed**.
 
