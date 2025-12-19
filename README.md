@@ -251,6 +251,7 @@ These results clearly show that the CPU+FPGA design provides a **substantial per
 5. Power on the board and wait for the boot LEDs to stabilize.
    <img width="1277" height="760" alt="image" src="https://github.com/user-attachments/assets/5ae6cead-7d97-4dda-b9ec-ce601bb83888" />
    
+<img width="797" height="598" alt="image" src="https://github.com/user-attachments/assets/7ebfbc30-0020-46eb-a8ca-0b071b38099c" />
 
 
 ### Step 2 – Access the Board via Serial
