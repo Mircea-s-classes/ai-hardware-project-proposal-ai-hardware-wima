@@ -202,8 +202,16 @@ All errors are tiny (well below 10⁻²), confirming that the FPGA accelerator i
 
 Offloading Conv1 to hardware does **not** degrade recognition performance; if anything, the small difference is within normal statistical variation.
 
+<p align="center">
+  <img src="figures/Accuracy_Benchmark.png" width="500">
+</p>
+
+
 #### Latency and Throughput: CPU vs CPU+FPGA
 
+<p align="center">
+  <img src="figures/Inference_Latency Benchmark.png" width="500">
+</p>
 
 Measured over 500 single-frame inferences:
 
@@ -212,6 +220,7 @@ Measured over 500 single-frame inferences:
 | Mean latency (ms)       | 83.81    | 28.18    |
 | Latency std. dev. (ms)  | 29.11    | 8.58     |
 | Throughput (FPS)        | 11.93    | 35.49    |
+
 
 **Key takeaways:**
 - ≈ **3× reduction in mean latency** when Conv1 is offloaded to FPGA.  
