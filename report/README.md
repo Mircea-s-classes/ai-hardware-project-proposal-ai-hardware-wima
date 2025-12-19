@@ -135,24 +135,25 @@ ai-hardware-project/
 ├── src/
 │   ├── model/
 │   │   ├── README.md
-│   │   └── CNN training & ONNX export code
+│   │   └── CNN training and ONNX export code
 │   │
 │   ├── hardware/
-│   │   └── PYNQ + ZtaChip control code
+│   │   └── PYNQ + ZtaChip runtime control code
 │   │
 │   └── vivado/
+│       └── Vivado project files and FPGA build artifacts
 │
 ├── models/
-│   └── trained weights, ONNX models, quantized models
+│   └── Trained weights, ONNX models, and quantized INT8 models
 │
 ├── hls/
-│   └── HLS accelerator code
+│   └── High-Level Synthesis (HLS) accelerator code
 │
 ├── overlay/
 │   └── FPGA bitstreams and ZtaChip overlays
 │
 ├── figures/
-│   └── plots, diagrams, benchmark figures
+│   └── Plots, diagrams, and benchmark figures
 │
 ├── presentations/
 │   ├── AI-Hardware-MidTerm-Presentation.pdf
@@ -164,8 +165,6 @@ ai-hardware-project/
 │
 └── README.md
 
-
----
 
 ## `src/model/` – Model Development Explained
 
