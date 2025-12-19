@@ -123,6 +123,7 @@ These results demonstrate that FPGA acceleration enables **real-time performance
 
 This repository is organized to reflect a **clean separation of concerns** between data, software, hardware, and documentation.
 
+```text
 ai-hardware-project/
 ├── data/
 │   └── asl_dataset/
