@@ -183,3 +183,70 @@ You should now see the PYNQ Linux terminal.
 In the serial terminal, run:
 ```bash
 ifconfig -a
+```
+
+### Step 4 – Access the PYNQ Jupyter Notebook
+
+1. On your host PC, open a browser and go to:
+
+   `https://<BOARD_IP>`
+
+2. Login (default PYNQ credentials):
+
+   - **username:** `xilinx`  
+   - **password:** `xilinx`
+
+> If your browser shows a security warning (self-signed certificate), click **Advanced → Proceed**.
+--
+
+### Step 5 – Load the FPGA Overlay
+In a Jupyter notebook cell:
+```python
+from pynq import Overlay
+overlay = Overlay("asl_system_wrapper.bit")
+overlay.download()
+```
+
+---
+
+### Step 6 – Run ASL Inference
+1. Capture a webcam frame  
+2. Convert to grayscale  
+3. Resize to 28×28  
+4. Normalize pixel values  
+5. Run inference and display predicted ASL letter  
+
+---
+
+## Repository Structure
+```text
+figures/        # Figures used in README and report
+models/         # Trained CNN and ONNX models
+hls/            # Vitis HLS source code
+vivado/         # Vivado block design and bitstreams
+pynq/           # Jupyter notebooks and overlays
+benchmarks/     # CPU/FPGA benchmarking scripts
+report/         # LaTeX report
+README.md
+```
+
+---
+
+## Limitations
+- Only the first convolution layer is accelerated on FPGA  
+
+
+---
+
+## Future Work 
+- Power and determinism analysis  
+
+---
+
+## Demo Video
+A demo video will be added demonstrating real-time ASL recognition on the PYNQ-Z1.
+
+---
+
+## Conclusion
+This project demonstrates a complete **AI hardware co-design workflow**, from CNN training to FPGA deployment, highlighting the benefits and challenges of FPGA acceleration for real-time embedded AI.
