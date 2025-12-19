@@ -30,7 +30,6 @@ This project implements a real-time **American Sign Language (ASL) alphabet reco
 
 A convolutional neural network (CNN) is trained to classify ASL hand gestures from grayscale images. The trained model is **partially offloaded to FPGA hardware** by accelerating the first convolutional block using a **custom HLS-generated IP core**, while the remaining layers execute on the ARM processor.
 
-> **Project status:** Actively in progress. All remaining objectives and benchmarks will be completed and added as development progresses.
 
 ---
 
