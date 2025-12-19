@@ -12,7 +12,7 @@ This directory contains all presentation materials submitted for the project acr
 - **AI-Hardware-MidTerm-Presentation.pdf**  
   Midterm project presentation outlining the problem motivation, system architecture, initial model design, and proposed hardware acceleration approach.
 
-- **AI_Hardware_Project_Proposal.pdf / Project_Proposal.md**  
+- **Project_Proposal.md /  Project_Proposal_binary_file.pdf**  
   Initial project proposal describing the problem statement, objectives, system plan, and anticipated hardware–software co-design approach.
 
 ---
