@@ -329,7 +329,7 @@ README.md
 ---
 
 ## Demo Video
-A demo video will be added demonstrating real-time ASL recognition on the PYNQ-Z1. [Here is the link.]([url](https://drive.google.com/file/d/11bp6jmOTSYHYp7QqQZ3bEl1PeBh_pm0y/view?usp=sharing))
+A demo video will be added demonstrating real-time ASL recognition on the PYNQ-Z1. Here is the link for the Demo video: https://drive.google.com/file/d/11bp6jmOTSYHYp7QqQZ3bEl1PeBh_pm0y/view?usp=sharing
 
 ---
 
